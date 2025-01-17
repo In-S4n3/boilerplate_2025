@@ -1,0 +1,14 @@
+{
+  "Landing": {
+    "title": "Bienvenue dans <g1>Mantine</g1> + <g2>TailwindCSS</g2>",
+    "description": "Ce starter Next.js 15 boilerplate inclut une configuration minimale pour Mantine avec TailwindCSS et Next-Intl internationalization. Pour commencer, modifiez le fichier page.tsx.",
+    "color-schemes": {
+      "light": "Clair",
+      "dark": "Sombre",
+      "auto": "Auto",
+      "clear": "Effacer",
+      "color-scheme-title": "Couleur du thème",
+      "color-scheme-changed": "Couleur du thème changée en {scheme}"
+    }
+  }
+}
