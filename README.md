@@ -1,13 +1,13 @@
 # Next App Mantine Tailwind Template
 
-This is a minimal template for a Next.js project with Mantine and Tailwind CSS.
+This starter Next.js 15 boilerplate includes a minimal setup for Mantine with TailwindCSS and Next-Intl internationalization.
 
 ## Development
 
 Run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## More information
