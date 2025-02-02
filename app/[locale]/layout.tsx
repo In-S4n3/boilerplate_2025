@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import { locales } from "@/libs/i18n/routing";
+
 import {
   ColorSchemeScript,
   createTheme,
@@ -6,13 +7,15 @@ import {
   MantineProvider,
   mergeMantineTheme,
 } from "@mantine/core";
-import Head from "next/head";
-import "./globals.css";
-import { breakpoints, colors } from "./theme";
+import { Notifications } from "@mantine/notifications";
+import "@mantine/notifications/styles.css";
+import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import "@mantine/notifications/styles.css";
-import { Notifications } from "@mantine/notifications";
+import { notFound } from "next/navigation";
+
+import { breakpoints, colors } from "@/libs/theme/theme";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Next App Mantine Tailwind Template",
@@ -27,7 +30,7 @@ const theme = mergeMantineTheme(
   }),
 );
 
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: Readonly<{
@@ -36,13 +39,17 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
 
+  if (!locales.includes(locale as Locale)) {
+    notFound();
+  }
+
   const messages = await getMessages();
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <Head>
+      <head>
         <ColorSchemeScript />
-      </Head>
+      </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
           <MantineProvider theme={theme}>

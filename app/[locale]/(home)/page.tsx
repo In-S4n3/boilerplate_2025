@@ -1,8 +1,9 @@
-import { ColorSchemesSwitcher } from "@/components/color-schemes-switcher";
 import { AppShell, AppShellHeader, AppShellMain, Group } from "@mantine/core";
-
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
+
+import { ColorSchemesSwitcher } from "@/components/color-schemes-switcher";
+import SignIn from "@/components/sign-in";
 
 export default async function Home() {
   const t = await getTranslations("Landing");
@@ -10,7 +11,7 @@ export default async function Home() {
   return (
     <AppShell header={{ height: 60 }} padding="md">
       <AppShellHeader>
-        <Group className="h-full px-md">
+        <Group className="h-full px-md justify-between max-w-7xl mx-auto">
           <Image
             className="dark:invert"
             src="https://nextjs.org/icons/next.svg"
@@ -18,6 +19,7 @@ export default async function Home() {
             width={100}
             height={100}
           />
+          <SignIn />
         </Group>
       </AppShellHeader>
       <AppShellMain>

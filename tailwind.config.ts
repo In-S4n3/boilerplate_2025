@@ -1,6 +1,6 @@
-import { breakpoints, colors } from "./app/theme";
 import tailwindPresetMantine from "tailwind-preset-mantine";
 import type { Config } from "tailwindcss";
+import { breakpoints, colors } from "./libs/theme/theme";
 
 const config: Config = {
   content: [
